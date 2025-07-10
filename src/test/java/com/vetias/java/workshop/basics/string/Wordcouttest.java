@@ -2,7 +2,7 @@ package com.vetias.java.workshop.basics.string;
 
 import org.junit.jupiter.api.Test;
 
-import com.java.workshop.basic.bean.strings.Wordcount;
+import com.java.workshop.collection.basic.bean.strings.Wordcount;
 
 import org.junit.jupiter.api.Assertions;
 
