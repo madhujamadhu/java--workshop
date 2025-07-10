@@ -1,3 +1,5 @@
+package com.java.workshop.basic.bean;
+
 public class Muliarrya {
     public static void main(String[] args) {
         String[][] students = {

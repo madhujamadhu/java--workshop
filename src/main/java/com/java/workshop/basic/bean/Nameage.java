@@ -1,3 +1,4 @@
+package com.java.workshop.basic.bean;
 import java.util.Scanner;
 
 public class Nameage {

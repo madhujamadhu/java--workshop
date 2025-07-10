@@ -1,3 +1,4 @@
+package com.java.workshop.basic.bean;
 public class Towdimi {
     public static void main(String[] args) {
         Integer[][] Employe=new Integer[5][2];

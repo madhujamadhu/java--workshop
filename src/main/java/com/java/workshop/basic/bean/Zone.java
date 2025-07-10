@@ -1,3 +1,4 @@
+package com.java.workshop.basic.bean;
 public class Zone {
      private String name;
     private int zoneid;

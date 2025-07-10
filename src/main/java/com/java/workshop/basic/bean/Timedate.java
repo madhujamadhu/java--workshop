@@ -1,3 +1,5 @@
+package com.java.workshop.basic.bean;
+
 import java.time.LocalTime;
 
 public class Timedate {
