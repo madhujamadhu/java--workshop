@@ -8,6 +8,8 @@ public class ListExample {
         names.add("madhu");
         names.add("shahana");
         names.add("kobi");
+        names.add("ajee");
+        names.add("vinu");
         System.out.println(names);
         for(int i=0;i<names.size();i++){
             System.out.println("name:"+names.get(i));
