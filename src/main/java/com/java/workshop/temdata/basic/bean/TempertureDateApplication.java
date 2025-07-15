@@ -1,6 +1,5 @@
 package com.java.workshop.temdata.basic.bean;
 
-import java.time.LocalDate;
 
 public class TempertureDateApplication {
     public static void main(String[] args) {
@@ -9,15 +8,13 @@ public class TempertureDateApplication {
                                             "www.vetias.com",
                                             "vetias@ac.in",
                                             "9842840033",
-                                            123456789L,
-                                            LocalDate.of(2020,1,1));
+                                            123456789);
     System.out.println(vet.name());
-    System.out.println(vet.completeaddress());
+    System.out.println(vet.description());
     System.out.println(vet.website());
     System.out.println(vet.email());
-    System.out.println(vet.contactnumber());
-    System.out.println(vet.registrationnumber());
-    System.out.println(vet.registrationDate());
+    System.out.println(vet.contact_number());
+    System.out.println(vet.registration_number());
     }
     
 }

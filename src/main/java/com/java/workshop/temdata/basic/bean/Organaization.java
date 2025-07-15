@@ -1,15 +1,13 @@
 package com.java.workshop.temdata.basic.bean;
-import java.time.LocalDate;
 
 
 
     public record Organaization(String name,
-    String completeaddress,
+    String description,
     String website,
     String email,
-    String contactnumber,
-    long registrationnumber,
-    LocalDate registrationDate){}
+    String contact_number,
+    int registration_number){}
     
 
 

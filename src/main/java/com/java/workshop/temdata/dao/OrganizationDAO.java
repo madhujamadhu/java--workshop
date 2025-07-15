@@ -1,17 +1,20 @@
 package com.java.workshop.temdata.dao;
+import com.java.workshop.temdata.basic.bean.Organaization;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.SQLException;
 
-import org.h2.jdbcx.JdbcDataSource;
+
 
 public class OrganizationDAO {
-    public void createTable(){
-        JdbcDataSource h2dDataSource=new JdbcDataSource();
-        h2dDataSource.setUrl("jdbc:h2:mem:temdataDB");
-        h2dDataSource.setUser("sa");
-        try(Connection dbconnection=h2dDataSource.getConnection()){
-            Statement statement=dbconnection.createStatement();
+    public void createTable(Connection dbConnection){
+        try{
+            Class.forName("org.h2.Driver");
+        }catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        try(Statement statement=dbConnection.createStatement()){
             statement.execute("""
                     create table organization(
                         id int AUTO_INCREMENT PRIMARY KEY,
@@ -19,11 +22,29 @@ public class OrganizationDAO {
                         WEBSITE VARCHAR(100),
                         EMAIL VARCHAR(100),
                         CONTACT_NUMBER VARCHAR(100),
-                        REGISTRATION_NO INT)
+                        REGISTRATION_NO INT,
+                        DESCRIPTION VARCHAR(255))
                     """);
         }catch(SQLException e){
             System.out.println("error create table:"+e.getMessage());
         }
+    }
+    public int save(Connection dbConnection,Organaization organization) {
+        try(PreparedStatement PreparedStatement=dbConnection.prepareStatement("""
+                INSERT INTO organization(name,website,email,contact_number,registration_no,DESCRIPTION) VALUES(?,?,?,?,?,?)
+                """)){
+                    PreparedStatement.setString(1,organization.name());
+                    PreparedStatement.setString(2,organization.website());
+                    PreparedStatement.setString(3,organization.email());
+                    PreparedStatement.setString(4,organization.contact_number());
+                    PreparedStatement.setInt(5,organization.registration_number());
+                    PreparedStatement.setString(6,organization.description());
+
+
+                }catch(SQLException e){
+                    System.out.println(e.getMessage());
+                }
+        return 0;
     }
     
 }
