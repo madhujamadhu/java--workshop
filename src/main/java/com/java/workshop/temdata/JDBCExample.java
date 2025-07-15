@@ -27,8 +27,10 @@ public class JDBCExample {
                                                 "1239856432",
                                                 12455645);
         organizationDAO.save(dbConnection,organization );
+        Organaization myOrganaization = organizationDAO.findByName(dbConnection, "VETIAS");{
+                System.out.println("Organization Name: " + myOrganaization);
+        }
     }
-
     
     
 }
