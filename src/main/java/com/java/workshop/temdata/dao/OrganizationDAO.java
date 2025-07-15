@@ -2,6 +2,7 @@ package com.java.workshop.temdata.dao;
 import com.java.workshop.temdata.basic.bean.Organaization;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
 
@@ -43,8 +44,31 @@ public class OrganizationDAO {
 
                 }catch(SQLException e){
                     System.out.println(e.getMessage());
+                    return 0;
                 }
         return 0;
     }
+                public Organaization findByName(Connection dbConnection,String name){
+                    Organaization organaization=null;
+                    try(PreparedStatement preparedStatement=dbConnection.prepareStatement("""
+                            SELECT*FROM organization WHERE name=?
+                            """)){
+                                preparedStatement.setString(1, name);
+                                ResultSet resultset=preparedStatement.executeQuery();
+                                if(resultset!=null && resultset.next()){
+                                    organaization=new Organaization(
+                                        resultset.getString("name"),
+                                        resultset.getString("description"),
+                                        resultset.getString("website"),
+                                        resultset.getString("email"),
+                                        resultset.getString("contact_number"),
+                                        resultset.getInt("registration_no"));
+                                }
+                            }catch(SQLException e){
+                                System.out.println(e.getMessage());
+                            }
+                            return organaization;
+                }
+    }
     
-}
+
